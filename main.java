@@ -17,6 +17,9 @@ public class main {
       System.out.println(bestWord(listOfWords)[0]);
       System.out.println(bestWord(listOfWords)[1]);
 
+      for (String word : listOfWords)
+        System.out.println(word);
+
       int[] grey = new int[5];
       int[] green = new int[5];
       int[] yellow = new int[5];
@@ -121,7 +124,9 @@ public class main {
         }
 
         if (yellow[j] == 1) {
-          if (tempword.charAt(j) == currentWord.charAt(j)) {
+
+          if (tempword.charAt(j) == currentWord.charAt(j)
+              || (tempword.indexOf(currentWord.substring(j, j + 1)) == -1)) {
             tempListOfWords.remove(tempword);
             break;
           }
